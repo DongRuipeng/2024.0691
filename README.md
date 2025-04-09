@@ -73,7 +73,7 @@ devtools::install_github("INFORMSJoC/2024.0691/src")
 > ```R
 > source("scripts/sim-table.R") # generate all table results
 > source("scripts/sim-time.R") # generate the time comparison result
-source("scripts/sim-vary.R") # generate the boxplot results
+> source("scripts/sim-vary.R") # generate the boxplot results
 > ```
 > 
 > (b) After obtaining the raw simulation results, run the following scripts from the scripts folder to generate tables, line and box plots:
