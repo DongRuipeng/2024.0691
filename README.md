@@ -1,0 +1,96 @@
+[![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
+
+<!-- # 2022.0295 -->
+
+# Fast Association Recovery in High Dimensions by Parallel Learning
+
+This archive is distributed in association with the [INFORMS Journal on Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
+
+The software and data in this repository are a snapshot of the software and data that were used in the research reported in the paper [Fast Association Recovery in High Dimensions by Parallel Learning](href) by Ruipeng Dong, and Canhong Wen.
+
+## Cite
+
+To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
+
+https://doi.org/xxx/xxx
+
+https://doi.org/xxx/xxx.cd
+
+Below is the BibTex for citing this snapshot of the repository.
+
+```
+@misc{GHM2024,
+  author       = {Ruipeng Dong and Canhong Wen},
+  publisher =     {INFORMS Journal on Computing},
+  title =         {Fast Association Recovery in High Dimensions by Parallel Learning},
+  year =          {2025},
+  doi =           {xxxx},
+  note =          {Available for download at: https://github.com/INFORMSJoC/xxxx},
+}  
+```
+
+## Required Packages
+We use R language for the numerical simulations and real-world data analysis. To run this project, make sure you have the following R packages installed. You can install them using:
+
+```R
+install.packages("glmnet")
+install.packages("MASS")
+install.packages("scalreg")
+install.packages("Rcpp")
+install.packages("RcppArmadillo")
+install.packages("foreach")
+install.packages("doParallel")
+install.packages("egg")
+install.packages("ggplot2")
+```
+## Data
+
+We test our method by an expression quantitative trait loci data that in an accessible RDA format (yeast.rda) in the data folder.
+
+## Running the Project
+
+### Step 1: Installing R package 
+To perform all experiments, please install our R package first:
+
+```R
+install_github("2024.0691/src")
+```
+
+### Step 2: Running Scripts
+
+#### (1) Numerical simulations
+To generate all raw simulation results, run the following scripts from the scripts folder:
+
+```R
+source("scripts/sim-table.R") # generate all table results
+source("scripts/sim-time.R") # generate the time comparison result
+source("scripts/sim-vary.R") # generate the boxplot results
+```
+
+After obtaining the raw simulation results, run the following scripts from the scripts folder to generate tables, line and box figures in our paper:
+
+```R
+source("scripts/get-table.R") # generate latex files summarizing error tables 
+source("scripts/get-line.R") # generate the time performance figures
+source("scripts/get-box.R") # generate the box plots
+```
+
+#### (2) Real data analysis
+To obtain the real data result, run the following scripts from the subfolder "/yeast" in the scripts folder:
+
+First, run the script "data_clean.R" to obtain the screened data that translate "/data/yeast.rda" into "/output/yeast_preprocess_data.RData".
+```R
+source("scripts/yeast/data_clean.R") # clean the data and save the screened data as "yeast_preprocess_data.RData" into the ../output folder
+```
+
+After obtaining the screened data, run the script "/yeast/analysis.R" that estimate models by "yeast_preprocess_data.RData".
+```R
+source("scripts/yeast/analysis.R") # compare the estimations of different methods, and save the result as table-real-screening.RData
+```
+
+Finally, to obtain the summary table in our paper, run the script "/yeast/get-table-real.R" that outputs a latex file including the summary table.
+```R
+source("scripts/yeast/get-table-real.R")
+```
+
+> **Note:** Ensure the working folder set correctly, and the save path is controlled by "result.path" variable in our scripts.
