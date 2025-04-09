@@ -2,8 +2,8 @@ rm(list = ls())
 cat('\f')
 
 
-path <- "D:/Git/CoSPA/Code/result/"
-out.path <- "D:/Git/CoSPA/Manuscript/tables/"
+path <- "~/2024.0691/scripts"
+out.path <- "~/2024.0691/scripts/result/"
 setwd(path)
 file <- "table-real-screening"
 load(paste0(path, file, ".RData"))

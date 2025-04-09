@@ -19,13 +19,13 @@ https://doi.org/xxx/xxx.cd
 Below is the BibTex for citing this snapshot of the repository.
 
 ```
-@misc{GHM2024,
-  author       = {Ruipeng Dong and Canhong Wen},
-  publisher =     {INFORMS Journal on Computing},
-  title =         {Fast Association Recovery in High Dimensions by Parallel Learning},
-  year =          {2025},
-  doi =           {xxxx},
-  note =          {Available for download at: https://github.com/INFORMSJoC/xxxx},
+@misc{cospa2025,
+  author    = {Ruipeng Dong and Canhong Wen},
+  publisher = {INFORMS Journal on Computing},
+  title     = {Fast Association Recovery in High Dimensions by Parallel Learning},
+  year      = {2025},
+  doi       = {xxxx},
+  note      = {Available for download at: https://github.com/INFORMSJoC/xxxx},
 }  
 ```
 
@@ -75,6 +75,8 @@ source("scripts/get-line.R") # generate the time performance figures
 source("scripts/get-box.R") # generate the box plots
 ```
 
+> **Note:** Ensure the working folders set correctly.
+
 #### (2) Real data analysis
 To obtain the real data result, run the following scripts from the subfolder "/yeast" in the scripts folder:
 
@@ -92,5 +94,3 @@ Finally, to obtain the summary table in our paper, run the script "/yeast/get-ta
 ```R
 source("scripts/yeast/get-table-real.R")
 ```
-
-> **Note:** Ensure the working folder set correctly, and the save path is controlled by "result.path" variable in our scripts.

@@ -1,17 +1,17 @@
 rm(list = ls())
 cat('\f')
-
 require(foreach)
 require(doParallel)
+
+path <- "~/2024.0691/scripts/"
+data.path <- paste0(path, "yeast/output/")
+result.path <- paste0(path, "result/")
 
 # repetition and number of cores
 repetition <- 200
 cl.num <- 20
 cl <- makeCluster(cl.num)
 registerDoParallel(cl)
-path <- "~/CoSPA/"
-data.path <- paste0(path, "data/")
-result.path <- paste0(path, "result/")
 
 load(paste0(data.path, "yeast_preprocess_data.RData"))
 
