@@ -1,9 +1,11 @@
 require(foreach)
 require(doParallel)
 
-path <- "d:/2024.0691/scripts/"
-result.path <-
-  paste0(path, "../results/raw/sim-table/")
+path <- "~/"
+path <- paste0(path, "2024.0691/scripts/")
+setwd(path)
+
+result.path <- "../results/raw/sim-table/"
 dir.create(path, showWarnings = FALSE, recursive = TRUE)
 dir.create(result.path, showWarnings = FALSE, recursive = TRUE)
 source(paste0(path, "sim-functions.R"))
@@ -27,8 +29,8 @@ pkg.list <- c('cospa', 'rrpack', 'secure')
 table <- data.frame()
 
 # repetition and number of cores
-repetition <- 2
-cl.num <- 2
+repetition <- 200
+cl.num <- 50
 cl <- makeCluster(cl.num)
 registerDoParallel(cl)
 

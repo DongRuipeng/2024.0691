@@ -3,8 +3,11 @@
 ## The collected data is saved as "yeast_full_data.RData" and "yeast_preprocess_data.RData"
 rm(list = ls())
 cat('\f')
-path <- "d:/2024.0691/scripts"
+
+path <- "~/"
+path <- paste0(path, "2024.0691/scripts/")
 setwd(path)
+
 load("../data/yeast.rda")
 
 marker <- t(yeast$marker)

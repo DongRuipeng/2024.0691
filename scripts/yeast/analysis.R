@@ -3,15 +3,17 @@ cat('\f')
 require(foreach)
 require(doParallel)
 
-path <- "d:/2024.0691/scripts/"
+path <- "~/"
+path <- paste0(path, "2024.0691/scripts/")
 setwd(path)
+
 data.path <- "../data/"
 result.path <- "../results/raw/"
 dir.create(result.path, showWarnings = FALSE, recursive = TRUE)
 
 # repetition and number of cores
-repetition <- 2
-cl.num <- 2
+repetition <- 200
+cl.num <- 50
 cl <- makeCluster(cl.num)
 registerDoParallel(cl)
 

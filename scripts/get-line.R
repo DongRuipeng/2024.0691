@@ -3,14 +3,17 @@ cat('\f')
 require(ggplot2)
 require(egg)
 
-path <- "d:/2024.0691/scripts/"
+path <- "~/"
+path <- paste0(path, "2024.0691/scripts/")
 setwd(path)
+
+data.path <- "../results/raw/sim-time/"
 result.path <- "../results/figures/"
 dir.create(result.path, showWarnings = FALSE, recursive = TRUE)
 
 # vary n
 file <- "time-n"
-load(paste0(path, file, ".RData"))
+load(paste0(data.path, file, ".RData"))
 n.list <- unique(table$n)
 mean.table <- data.frame()
 for (n in n.list) {
@@ -29,7 +32,7 @@ plot.n <- ggplot(mean.table, aes(x = n, y = Time)) +
 
 # vary p
 file <- "time-p"
-load(paste0(path, file, ".RData"))
+load(paste0(data.path, file, ".RData"))
 p.list <- unique(table$p)
 mean.table <- data.frame()
 for (p in p.list) {
@@ -48,7 +51,7 @@ plot.p <- ggplot(mean.table, aes(x = p, y = Time)) +
 
 # vary q
 file <- "time-q"
-load(paste0(path, file, ".RData"))
+load(paste0(data.path, file, ".RData"))
 q.list <- unique(table$q)
 mean.table <- data.frame()
 for (q in q.list) {
@@ -65,4 +68,12 @@ plot.q <- ggplot(mean.table, aes(x = q, y = Time)) +
   ) +
   ylim(c(0, 3)) + ylab("Time (secs)")
 
+file <- "time"
+pdf(
+  file = paste0(result.path, file, ".pdf"),
+  width = 15,
+  height = 15 / 2.92,
+  onefile = FALSE
+)
 ggarrange(plot.n, plot.p, plot.q, nrow = 1, ncol = 3)
+dev.off()

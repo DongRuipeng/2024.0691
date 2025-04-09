@@ -3,15 +3,18 @@ cat('\f')
 require(ggplot2)
 require(egg)
 
-path <- "d:/2024.0691/scripts/"
+path <- "~/"
+path <- paste0(path, "2024.0691/scripts/")
 setwd(path)
+
+data.path <- "../results/raw/sim-vary/"
 result.path <- "../results/figures/"
 dir.create(result.path, showWarnings = FALSE, recursive = TRUE)
 
 er.scale <- 1e3
 # vary p
 file <- "vary-p"
-load(paste0(path, file, ".RData"))
+load(paste0(data.path, file, ".RData"))
 table$ErC <- table$ErC * er.scale
 table$ErXC <- table$ErXC * er.scale
 table$p <- as.character(table$p)
@@ -64,7 +67,7 @@ dev.off()
 
 # vary q
 file <- "vary-q"
-load(paste0(path, file, ".RData"))
+load(paste0(data.path, file, ".RData"))
 table$ErC <- table$ErC * er.scale
 table$ErXC <- table$ErXC * er.scale
 table$q <- as.character(table$q)
@@ -117,7 +120,7 @@ dev.off()
 
 # vary snr
 file <- "vary-snr"
-load(paste0(path, file, ".RData"))
+load(paste0(data.path, file, ".RData"))
 table$ErC <- table$ErC * er.scale
 table$ErXC <- table$ErXC * er.scale
 table$snr <- as.character(table$snr)

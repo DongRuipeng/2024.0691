@@ -1,10 +1,11 @@
 rm(list = ls())
 cat('\f')
 
-
-path <- "d:/2024.0691/scripts/"
+path <- "~/"
+path <- paste0(path, "2024.0691/scripts/")
 setwd(path)
-load(paste0("../results/raw/table-real-screening.RData"))
+
+load("../results/raw/table-real-screening.RData")
 result.path <- "../results/tables"
 dir.create(result.path, showWarnings = FALSE, recursive = TRUE)
 sink(paste0(result.path, "/table-real-screening.tex"))
