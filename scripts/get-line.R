@@ -1,10 +1,12 @@
 rm(list = ls())
 cat('\f')
-
-path <- "~/2024.0691/result/sim-time-2024-03-19/"
-setwd(path)
 require(ggplot2)
 require(egg)
+
+path <- "d:/2024.0691/scripts/"
+setwd(path)
+result.path <- "../results/figures/"
+dir.create(result.path, showWarnings = FALSE, recursive = TRUE)
 
 # vary n
 file <- "time-n"

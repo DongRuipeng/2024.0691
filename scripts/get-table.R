@@ -1,4 +1,4 @@
-path <- "~/2024.0691/result/sim-table-2024-08-21/"
+path <- "d:/2024.0691/results/raw/sim-table/"
 out.path <- path
 setwd(path)
 file <- "table-SC"

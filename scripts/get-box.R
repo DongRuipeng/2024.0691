@@ -1,12 +1,14 @@
 rm(list = ls())
 cat('\f')
-
-path <- "~/2024.0691/result/sim-vary-2024-08-21/"
-setwd(path)
 require(ggplot2)
 require(egg)
-er.scale <- 1e3
 
+path <- "d:/2024.0691/scripts/"
+setwd(path)
+result.path <- "../results/figures/"
+dir.create(result.path, showWarnings = FALSE, recursive = TRUE)
+
+er.scale <- 1e3
 # vary p
 file <- "vary-p"
 load(paste0(path, file, ".RData"))
@@ -46,7 +48,7 @@ plot.rank <- ggplot(table, aes(x = p, y = Rank)) +
   theme(axis.title.x = element_blank())
 
 pdf(
-  file = paste0(path, file, ".pdf"),
+  file = paste0(result.path, file, ".pdf"),
   width = 10,
   height = 10 / 5.291,
   onefile = FALSE
@@ -99,7 +101,7 @@ plot.rank <- ggplot(table, aes(x = q, y = Rank)) +
   theme(axis.title.x = element_blank())
 
 pdf(
-  file = paste0(path, file, ".pdf"),
+  file = paste0(result.path, file, ".pdf"),
   width = 10,
   height = 10 / 5.291,
   onefile = FALSE
@@ -152,7 +154,7 @@ plot.rank <- ggplot(table, aes(x = snr, y = Rank)) +
   theme(axis.title.x = element_blank())
 
 pdf(
-  file = paste0(path, file, ".pdf"),
+  file = paste0(result.path, file, ".pdf"),
   width = 10,
   height = 10 / 5.291,
   onefile = FALSE

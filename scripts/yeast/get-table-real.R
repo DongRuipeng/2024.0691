@@ -2,12 +2,12 @@ rm(list = ls())
 cat('\f')
 
 
-path <- "~/2024.0691/scripts"
-out.path <- "~/2024.0691/scripts/result/"
+path <- "d:/2024.0691/scripts/"
 setwd(path)
-file <- "table-real-screening"
-load(paste0(path, file, ".RData"))
-sink(paste0(out.path, file, ".tex"))
+load(paste0("../results/raw/table-real-screening.RData"))
+result.path <- "../results/tables"
+dir.create(result.path, showWarnings = FALSE, recursive = TRUE)
+sink(paste0(result.path, "/table-real-screening.tex"))
 
 table$Time <- as.double(table$Time)
 

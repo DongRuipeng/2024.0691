@@ -3,7 +3,7 @@
 ## The collected data is saved as "yeast_full_data.RData" and "yeast_preprocess_data.RData"
 rm(list = ls())
 cat('\f')
-path <- "~/2024.0691/scripts"
+path <- "d:/2024.0691/scripts"
 setwd(path)
 load("../data/yeast.rda")
 
@@ -14,8 +14,6 @@ p <- dim(marker)[2]
 
 X <- t(yeast$marker)
 Y <- t(yeast$exp)
-dir.create("./yeast/output", showWarnings = FALSE, recursive = TRUE)
-save(X, Y, file = "./yeast/output/yeast_full_data.RData")
 
 #####Combine markers differ at most 1
 group <- vector()
@@ -76,4 +74,4 @@ colnames(Y) <- genenames[geneid]
 n <- nrow(Y)
 q <- ncol(Y)
 p <- ncol(X)
-save(X, Y, file = "./yeast/output/yeast_preprocess_data.RData")
+save(X, Y, file = "../data/yeast_preprocess_data.RData")

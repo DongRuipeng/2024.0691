@@ -1,13 +1,12 @@
 require(foreach)
 require(doParallel)
 
-platform.path <- "~/2024.0691/"
-source.path <- "~/2024.0691/scripts/"
+path <- "d:/2024.0691/scripts/"
 result.path <-
-  paste0(platform.path, "result/sim-vary-", Sys.Date(), "/")
-dir.create(platform.path, showWarnings = FALSE, recursive = TRUE)
+  paste0(path, "../results/raw/sim-vary/")
+dir.create(path, showWarnings = FALSE, recursive = TRUE)
 dir.create(result.path, showWarnings = FALSE, recursive = TRUE)
-source(paste0(source.path, "sim-functions.R"))
+source(paste0(path, "sim-functions.R"))
 
 z1 <- file(paste0(result.path, "message.Rout"), open = "wt")
 sink(z1, type = "message")
@@ -22,8 +21,8 @@ func.list <- c('est.err', 'frate', 'pred.err', 'sim.table')
 pkg.list <- c('cospa')
 
 # repetition and number of cores
-repetition <- 200
-cl.num <- 30
+repetition <- 2
+cl.num <- 2
 cl <- makeCluster(cl.num)
 registerDoParallel(cl)
 
