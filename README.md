@@ -33,6 +33,7 @@ Below is the BibTex for citing this snapshot of the repository.
 We use R language for the numerical simulations and real-world data analysis. To run this project, make sure you have the following R packages installed. You can install them using:
 
 ```R
+install.packages("devtools")
 install.packages("glmnet")
 install.packages("MASS")
 install.packages("scalreg")
