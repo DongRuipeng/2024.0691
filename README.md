@@ -53,7 +53,7 @@ We test our method by an expression quantitative trait loci data that in an acce
 To perform all experiments, please install our R package first:
 
 ```R
-install_github("2024.0691/src")
+install_github("DongRuipeng/2024.0691/src")
 ```
 
 ### Step 2: Running Scripts
